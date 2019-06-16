@@ -1,0 +1,254 @@
+// If you edit this file you need to compile the theme. See README.md for details.
+
+// Global variable overrides. Must be declared before importing Valo.
+
+// Defines the plaintext font size, weight and family. Font size affects general component sizing.
+//$v-font-size: 16px;
+//$v-font-weight: 300;
+//$v-font-family: "Open Sans", sans-serif;
+
+// Defines the border used by all components.
+//$v-border: 1px solid (v-shade 0.7);
+//$v-border-radius: 4px;
+
+// Affects the color of some component elements, e.g Button, Panel title, etc
+//$v-background-color: hsl(210, 0%, 98%);
+// Affects the color of content areas, e.g  Panel and Window content, TextField input etc
+//$v-app-background-color: $v-background-color;
+
+// Affects the visual appearance of all components
+//$v-gradient: v-linear 8%;
+//$v-bevel-depth: 30%;
+//$v-shadow-opacity: 5%;
+
+// Defines colors for indicating status (focus, success, failure)
+//$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
+//$v-friendly-color: #2c9720;
+//$v-error-indicator-color: #ed473b;
+
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+
+@import "../valo/valo.scss";
+@import "login.scss";
+
+@mixin mytheme {
+    @include valo;
+    @include dashboard-login-view;
+    // Insert your own theme rules here
+
+    $color1: hsl(220,5%,38%);
+    $color2: #5d73c0;
+    $color3: #009900;
+    $color4: #d2f4f3; // blue siam
+    $color5: #e67300; // orange
+    $color6: #ff9999;
+
+    .v-ui{
+       background-color: gainsboro;
+    }
+
+
+    .whitesmoke{
+        background-color:whitesmoke;
+    }
+
+    .headercolor{
+        background-color:white;
+    }
+
+
+
+    .labelheader {
+
+        margin: 10px;
+    }
+    
+    .label0 {
+            font-size: 21px;
+            line-height: normal;
+            
+        }
+        
+     .label1 {
+            font-size: 23px;
+            line-height: normal;
+            font-style: bold;
+        }
+
+
+    /* All labels have white text on black background */
+
+
+   
+
+    .v-menubar  {
+        margin: 10px;
+        background: $color1;
+        color: white;
+    }
+
+    .v-menubar-menuitem[width-range~="0-300px"]  {
+        margin: 10px;
+        font-size: 24pt;
+
+    }
+
+    .v-menubar-menuitem[width-range~="301-600px"]   {
+        margin: 10px;
+        font-size: 14pt;
+    }
+
+
+    .v-menubar-menuitem{
+        font-size: 16pt;
+
+    }
+
+
+
+    .v-verticallayout-chartcontent {
+        background:whitesmoke;
+        padding: 0.3em 0.3em;
+    }
+
+    .v-verticallayout-chartpanel {
+        background:whitesmoke;
+        margin: 10px;
+    }
+
+    .v-horizontallayout-orange {
+        background:orange;
+    }
+
+    .layout-with-border {
+    border: 1px solid black;
+   }
+
+    .v-loading-indicator,
+    .v-loading-indicator-delay,
+    .v-loading-indicator-wait {
+        position: absolute;
+        background-color : $color1;
+        top: 0;
+        right: 0;
+        z-index: 30000;    
+        height: 3px;   
+        margin-right: 0px;
+        margin-top: 0px;
+    }
+    .v-loading-indicator-delay {
+
+    }
+    .v-loading-indicator-wait {
+
+    }
+    .v-panel-caption-color1{
+        @include valo-panel-caption-style($background-color : $color1);
+
+    }
+
+    .v-panel-caption-color2{
+        @include valo-panel-caption-style($background-color : $color2);
+
+    }
+
+    .v-panel-caption-color3{
+        @include valo-panel-caption-style($background-color : $color3);
+
+    }
+
+    .v-panel-caption-color4{
+        @include valo-panel-caption-style($background-color : $color4);
+
+    }
+
+    .v-panel-caption-color5{
+        @include valo-panel-caption-style($background-color : $color5);
+
+    }
+
+    .v-panel-caption-color6{
+        @include valo-panel-caption-style($background-color : $color6);
+
+    }
+
+
+    .v-panel-chart {
+        background: white;  
+        margin: 0.5em 0.5em;
+    }
+
+    .v-panel-chart2 {
+        background: white;  
+        margin: 0.5em 0.5em;
+    }
+
+
+    .flexwrap {
+        background: black;
+        color: white;
+
+        .title {
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+            padding: 5px;
+        }
+
+        .itembox {
+            white-space: normal;
+            vertical-align: top;
+        }
+
+        .itembox.v-label {padding: 5px}
+    }
+
+    .flexwrap[width-range~="0-800px"] {
+        .itembox {width: 100%; color:#00a7f5}
+
+    }
+
+    .flexwrap[width-range~="800px-"] {
+        .itembox {width: 50%; color:white}
+    }
+
+
+
+    .v-window-win1 .v-window-outerheader {
+        background:  $color5;
+
+    }
+
+    .v-window-win1 .v-window-header {
+        color:white;
+    }
+    
+    .v-grid-column-header-content{
+         font-weight: bold;
+    }
+    
+    .v-grid-cell.cellgreen {
+     color: #009900;
+      font-weight: bold;
+    }
+    
+    .v-grid-cell.cellblack {
+     color: black;
+     font-weight: bold;
+    }
+    
+    .v-grid-cell.cellorange {
+     color: #e67300;
+     font-weight: bold;
+    }
+    
+    .v-grid-footer {
+       color: #e67300;
+     font-weight: bold;
+      }
+    
+      
+     
+
+}
