@@ -221,8 +221,7 @@ public class Data_problem_log extends VerticalLayout {
        System.out.println("show");
     
     }
-    
-    
+     
     void update(Beans_brilink_problem beans_brilink_problem) {
         Window subWindow = new Window("Update / Delete");
         FormLayout subContent = new FormLayout();
@@ -331,15 +330,14 @@ public class Data_problem_log extends VerticalLayout {
            subWindow.close();
         });
 
-
-       
+      
         layout_button.addComponent(delete);
         layout_button.addComponent(cancel);
         layout_button.addComponent(ok);
         subContent.addComponent(layout_button);
         
        
-        layout_confirm.addComponent(new Label("Are You Sure ?"));    
+        layout_confirm.addComponent(new Label("Are You Sure ??"));    
         layout_confirm.addComponent(confirm_no);
         layout_confirm.addComponent(confirm_delete);
      
