@@ -160,14 +160,16 @@ public class Beans_brilink_problem {
         setupConnection();
         Connection con = connectionPool.reserveConnection();
         String sql = "update problem_brilink set tanggal = ?, problem = ?, detail_problem = ?, status =? "
-                + "where id = ? ";
+                + " , tanggal_close = ? where id = ? ";
         PreparedStatement pstatement = con.prepareStatement(sql);
         pstatement.setString(1, getTanggal());
         pstatement.setString(2, getProblem());
         pstatement.setString(3, getDetail_problem());
-         pstatement.setString(4, getStatus());
-        pstatement.setInt(5, getId());
+        pstatement.setString(4, getStatus());
+        pstatement.setString(5, getDate_close()); 
+        pstatement.setInt(6, getId());
 
+        
         pstatement.executeUpdate();
         con.commit();
         con.close();

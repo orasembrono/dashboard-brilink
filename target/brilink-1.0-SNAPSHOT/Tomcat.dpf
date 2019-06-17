@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/brilink">
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/ebanking" password="root" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/ebanking" username="root"/>
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/brilink" password="obrilink123" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/brilink" username="jrm"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/ebanking" password="root" type="javax.sql.DataSource" url="jdbc:mysql://131.108.0.243:3306/ebanking" username="root"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/brilink" password="obrilink123" type="javax.sql.DataSource" url="jdbc:mysql://131.108.0.243:3306/brilink" username="jrm"/>
 </Context>

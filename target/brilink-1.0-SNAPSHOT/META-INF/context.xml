@@ -8,7 +8,7 @@
     maxIdle="30"
     maxWait="10000"
     driverClassName="com.mysql.jdbc.Driver"
-    url="jdbc:mysql://localhost:3306/ebanking"
+    url="jdbc:mysql://131.108.0.243:3306/ebanking"
     username="root"
     password="root"
     />
@@ -20,7 +20,7 @@
     maxIdle="30"
     maxWait="10000"
     driverClassName="com.mysql.jdbc.Driver"
-    url="jdbc:mysql://localhost:3306/brilink"
+    url="jdbc:mysql://131.108.0.243:3306/brilink"
     username="jrm"
     password="obrilink123"
     />
