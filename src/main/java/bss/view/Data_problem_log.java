@@ -9,6 +9,7 @@ import bss.MyUI;
 import bss.backend.Beans_brilink_problem;
 import bss.backend.Beans_laporan_bulanan_kanca;
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.shared.Position;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
@@ -18,6 +19,7 @@ import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.NativeButton;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
@@ -181,8 +183,10 @@ public class Data_problem_log extends VerticalLayout {
 
             try {
                 brilink_problem.insert();
-
                 refreshGrid();
+                 Notification.show("Add", "Data Berhasil Ditambahkan",
+                             Notification.Type.HUMANIZED_MESSAGE).setPosition(Position.BOTTOM_CENTER);
+                  
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 Logger.getLogger(Data_problem_log.class.getName()).log(Level.SEVERE, null, ex);
@@ -208,19 +212,7 @@ public class Data_problem_log extends VerticalLayout {
         getUI().addWindow(subWindow);
     }
 
-    public void onDelete(){
-        
-    }
-    
-    public void onCancel(){
-        
-    }
-    
-    public void confirm(){
-       // Window win = UI.getCurrent().findAncestor(parentType);
-       System.out.println("show");
-    
-    }
+   
      
     void update(Beans_brilink_problem beans_brilink_problem) {
         Window subWindow = new Window("Update / Delete");
@@ -268,14 +260,30 @@ public class Data_problem_log extends VerticalLayout {
 
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date date_now = new Date();
+            String date_close = null;
+            // open -> close
+            if ( beans_brilink_problem.getStatus().equals(STATUS[0]) && c_status.getValue().equals(STATUS[1]) ){
+                System.out.println("open - close");
+                date_close =    dateFormat.format(date_now);
+             // close -> open
+            }else if ( beans_brilink_problem.getStatus().equals(STATUS[1]) && c_status.getValue().equals(STATUS[0]) ){
+              date_close = null;  
+            } else{
+              date_close = beans_brilink_problem.getDate_close();
+            }
+                    
+                    
+                    
             Beans_brilink_problem brilink_problem = new Beans_brilink_problem(0,
                     df_tanggal.getValue().toString(), tf_problem.getValue(), ta_detail_problem.getValue(),
-                    c_status.getValue().toString(), dateFormat.format(date_now), beans_brilink_problem.getId());
+                    c_status.getValue().toString(), date_close, beans_brilink_problem.getId());
 
             try {
                 brilink_problem.update();
-
                 refreshGrid();
+                 Notification.show("Update", "Data Berhasil Diupdate",
+                             Notification.Type.HUMANIZED_MESSAGE).setPosition(Position.BOTTOM_CENTER);
+                
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 Logger.getLogger(Data_problem_log.class.getName()).log(Level.SEVERE, null, ex);
@@ -323,6 +331,10 @@ public class Data_problem_log extends VerticalLayout {
            try {
                brilink_problem.delete();
                refreshGrid();
+               
+                Notification.show("Delete", "Data Berhasil Dihapus",
+                             Notification.Type.HUMANIZED_MESSAGE).setPosition(Position.BOTTOM_CENTER);
+                
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 Logger.getLogger(Data_problem_log.class.getName()).log(Level.SEVERE, null, ex);
